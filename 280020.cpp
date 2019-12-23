@@ -590,7 +590,7 @@ template class Table<int>;
 int main()
 {
 	
-  int sec=4;
+  int sec=9;
 	switch(sec){
 	case 1 :
 		{
@@ -636,7 +636,7 @@ int main()
 		break;
 	case 5 :
 	  break;
-	/*case 6 :
+	/*ccase 6 :
 	  Image im1("custom.bin");
 	  im1.threshold(128);
 	  im1.print("custom2.bin");
@@ -651,6 +651,7 @@ int main()
 	  im3.erosion();
 	  im3.print("custom2.bin");
 	  break;
+	  */
 	case 9 :
 	  Table<int> t1(4,4,1);
 	  t1.print(); // satır ve sütun etiketleri de yazılmalı
@@ -667,7 +668,6 @@ int main()
 	  t1.setColNames(s2,3);
 	  cout<<t2.itemAt("1","S2")<<endl;  // (1,1) deki eleman
 	  break;
-	  */
 	}
 	
 	
