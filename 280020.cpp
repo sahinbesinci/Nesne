@@ -363,6 +363,7 @@ Matrix<T> Matrix<T>::inversion(){
 					bM->matrix[j][m] = bM->matrix[j][m] - (bM->matrix[i][m]*l);
 				}
 			}
+		}
 	}
 	return *bM;
 }
