@@ -53,18 +53,28 @@ public:
 	Matrix<T> inv();
 	T det();
 	
-	//for Table
+	//for Table - indeksteki eleman 
 	int getItem(int,int);
+	
+	// Satır sütun bilgisi verildiğinde ("A2" gibi) o indisteki değeri getirir.
 	void printTable(string*, string*);
 private:
+	// Matix sınıfının matrisidir.
 	T** matrix;
+	// Matrisin satır sayısını tutar.
 	int row;
+	// Matrisin sütun sayısını tutar.
 	int col;
+	// ilk iki indis matrise ait satır ve sütun sayılarının sembolüdür.
+	// Son indis ise 'r' ve ya 'e' ile gönderilen parametrelerin karşılığı olan matrisi oluşturmayı sağlar.
 	bool createMatrix(int,int,T);
-	// matris - skalar işlemleri
+	// matris - skalar işlemleri için üretilmiştir.
 	Matrix<T> islem(char,T);
+	// Matrisin transpozesini alır.
 	void Transpoze();
+	// Matrisin tersini oluşturur ve getirir.
 	Matrix<T> inversion();
+	// Matrisin determinantını hesaplar ve döndürür.
 	T determinant(Matrix<T>*);
 };
 
@@ -72,21 +82,40 @@ template<class T>
 class Table
 {
 public:
+	// Tablo oluşturur. Matris ve tablo isimlendirmeleri ile bir bütün tablo oluşması sağlanır.
+	// defaultta 10x10 luk içi 0 larla dolu bir tablo oluşturur.
 	Table();
+	
+	// İlk iki parametre tablonun satır ve sütun boyutlarını belirler.
+	// Son parametre ise tablonun hangi sayı ile doldurulması gerektiğini ya data
+	// 'r' ve 'e' parametreleri kullanılarak random ve ya birim matris oluşturulması sağlanır.
 	Table(int,int,int);
+	// Tablonun matrisinin ve satır ile sütun isimlerinin ekrana gösterilmesini sağlar.
 	void print();
+	// Tablodaki satır ve sütun değerlerine göre elemanı getirir.
 	int itemAt(int,int);
+	// Tablodaki Satır ve sütun isimlerine göre ("A2") elemanı getirir.
 	int itemAt(string);
+	// Tablodaki satır ve sütun isimlerine göre ("2","A") elemanı getirir.
 	int itemAt(string, string);
+	// Tablonun birinci satırından itibaren adını değiştirir. ("Satir 1", "ikinci satir") gibi..
 	bool setRowNames(string[], int);
+	// Tablonun sütun isimlerini değiştirir. ("Sutun 1", "ikinci sutun") gibi..
 	bool setColNames(string[], int);
 private:
+	//Tablonun değerlerini tutan matris değişkenidir.
 	Matrix<T>* matrix;
+	// Tablonun satır sayısını tutar.
 	int row;
+	// Tablonun sütun sayısını tutar.
 	int col;
+	// Tablonun sütun isimlerini tutar.
 	string* c;
+	// Tablonun satır isimlerini tutar.
 	string* r;
+	// Tablo ilk oluşturulduğunda uzunluklara göre satır ve sütuna ait isimlendirmeler oluşturur.
 	string generateColumnName(int);
+	// (satır, sütun) -> Tablodaki değerleri döndürür.
 	int getItem(int, string);
 };
 
