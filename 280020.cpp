@@ -656,7 +656,7 @@ int main()
 	case 9 :
 		Table<int> t1(4,4,1);
 		t1.print(); // satır ve sütun etiketleri de yazılmalı
-		string s = {"Sat1","Sat2"};
+		string s[] = {"Sat1","Sat2"};
 		t1.setRowNames(s,2);
 		t1.print();
 		break;
