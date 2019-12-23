@@ -663,13 +663,15 @@ int main()
 		}	
 		break;
 	case 10 :
-		Table<int> t2(3,4,'r');
-		t2.print();
-		cout<<t2.itemAt(1,1)<<endl; // (1,1) deki eleman
-		cout<<t2.itemAt("A2")<<endl;  // (2,0) deki eleman
-		string s2[] = {"S1","S2","S3"};
-		t1.setColNames(s2,3);
-		cout<<t2.itemAt("1","S2")<<endl;  // (1,1) deki eleman
+		{
+			Table<int> t2(3,4,'r');
+			t2.print();
+			cout<<t2.itemAt(1,1)<<endl; // (1,1) deki eleman
+			cout<<t2.itemAt("A2")<<endl;  // (2,0) deki eleman
+			string s2[] = {"S1","S2","S3"};
+			t1.setColNames(s2,3);
+			cout<<t2.itemAt("1","S2")<<endl;  // (1,1) deki eleman
+		}
 		break;
 	}
 	
