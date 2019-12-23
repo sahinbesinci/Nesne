@@ -47,7 +47,7 @@ public:
 	void Tr();
 	
 	// Matrix dizisinin Transpozesini alan fonksiyondur.
-	void emul(Matrix<int>*);
+	void emul(Matrix<T>*);
 	
 	// Matrix dizisinin Tersini alan fonksiyondur.
 	Matrix<T> inv();
