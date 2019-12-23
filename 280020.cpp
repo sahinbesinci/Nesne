@@ -12,23 +12,44 @@ template<class T>
 class Matrix
 {
 public:
+	// Matrix sıfının kurucu fonksiyonudur. Defaultta 10x10 luk matris üretir ve 0 değeri atar.
 	Matrix();
+	// Matrix sınıfının kurucu fonksiyonudur. ilk iki parametresi satır x sütun sayılarını verir. 
+	// Son parametresi ise, sayısal bir ifade ise o sayılarla matrix i doldurur.
+	// Eğer sayısal değil ve r ise random (0 ile 255) sayı ile matrixi doldurur.
+	// Eğer sayısal değil ve e ise birim matris oluşturur.
 	Matrix(int,int,T);
+	// Matrix sınıfının oluşturulan matrix boyutunu değiştirir. Mevcuttaki satır ve ya sütun sayısından büyük ve ya küçük girilmişse aradaki farklara 0 değeri atanır.
 	void resize(int,int);
+	// Matrix dizisinin ekrana yazdırılması için kullanılmaktadır.
 	void print();
+	// Matrix dizininin text editörüne yazılmasını sağlar.
 	void print(string);
+	// İki Matrix nesnelerinde bulunan Matrix dizilerinin toplamının sonucunu verir. toplama işleminin aşırı yüklemesidir. 
 	Matrix<T>* operator+(const Matrix<T>&);
+	// Atama yapmayı sağlayan aşırı yükleme fonksiyonudur. bir matris dizisini diğer matris dizisine atar.
 	void operator=(const Matrix<T>*);
+	// İki Matrix nesnelerinde bulunan Matrix dizilerinin çıkarma işleminin sonucunu verir. çıkarma işleminin aşırı yüklemesidir. 
 	Matrix<int> operator-(const Matrix<int>&);
+	// İki Matrix nesnelerinde bulunan Matrix matrislerinin çarpma işleminin sonucunu verir. çarpma işleminin aşırı yüklemesidir. 
 	Matrix<T> operator*(const Matrix<T>&);
+	
+	// Skaler işlemler için kullanılan aşırı yüklenen fonksiyonlardır.
+	// Toplama, Çıkarma, Çarpma, Bölme, Mod ve üs almaya yarar.
 	Matrix<T> operator+(const T);
 	Matrix<T> operator-(const T);
 	Matrix<T> operator*(const T);
 	Matrix<T> operator/(const T);
 	Matrix<T> operator%(const T);
 	Matrix<T> operator^(const T);
+	
+	// Matrix dizisinin Transpozesini alan fonksiyondur.
 	void Tr();
+	
+	// Matrix dizisinin Transpozesini alan fonksiyondur.
 	void emul(Matrix<int>*);
+	
+	// Matrix dizisinin Tersini alan fonksiyondur.
 	Matrix<T> inv();
 	T det();
 	
@@ -323,8 +344,8 @@ void Matrix<T>::Transpoze(){
 
 // eleman düzeyinde çarpma -> matris boyutları aynı olmalı
 template<class T>
-void Matrix<T>::emul(Matrix<int>* obj){
-	Matrix<int>* tMatrix = new Matrix(row,col,0);
+void Matrix<T>::emul(Matrix<T>* obj){
+	Matrix<T>* tMatrix = new Matrix(row,col,0);
 	for(int i=0;i<row;i++){
 		for(int j=0;j<col;j++){
 			tMatrix->matrix[i][j] = matrix[i][j] * obj->matrix[i][j];
